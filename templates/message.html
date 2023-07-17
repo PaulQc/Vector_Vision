@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+    <style>
+        @import "../static/VectorVision.css";
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="box1" id="message">
+      <p> {{ text|safe }}</p>
+    </div>
+
+    <!-- Message pour informer que l'on essaie de se connecter à Vector -->
+    {% if step == 'try_to_connect' %}
+        <meta http-equiv="Refresh" content="0; url='/trying_to_connect'" >
+    {% endif %}
+
+    <!-- Message pour informer que l'on a pas réussi à se connecter à Vector -->
+    {% if step == 'connection_fail' %}
+        <meta http-equiv="Refresh" content="3; url='/'" >
+    {% endif %}
+
+    <!-- Instruction pour placer l'image/l'objet devant Vector pour en prendre la photo-->
+    {% if step == 'connected' %}
+        <div class="box2">
+            <form action="/take_picture" method="POST">
+                <input type="submit" value="Prêt !" class="boutons">
+            </form>
+        </div>
+    {% endif %}
+
+    <!-- Demande de valider si la photo prise avec Vector est adéquate -->
+    {% if step == 'validate_picture' %}
+        <div class="box2">
+            <form action="/analyse_picture" method="POST">
+                <input type="submit" class="boutons" name="button1" value="Oui c'est bon !">
+            </form>
+            <form action="/retake_picture" method="POST">
+                <input type="submit" class="boutons" name="button2" value="Non, reprendre">
+            </form>
+        </div>
+        <div class="box3">
+            <p> <img src={{url_for('static', filename=image_file)}} alt="Image que vient de prendre Vector"
+            class="image"></p>
+        </div>
+    {% endif %}
+
+    <!-- Message indiquant de repositionner l'image/l'objet devant Vector pour reprendre la photo -->
+    {% if step == 'retake_picture' %}
+        <div class="box2">
+            <form action="/take_picture" method="POST">
+                <input type="submit" value="Prêt !" class="boutons">
+            </form>
+        </div>
+    {% endif %}
+
+    <!-- Message indiquant que l'analyse de l'image a été démarrée -->
+    {% if step == 'analyse_picture' %}
+        <meta http-equiv="Refresh" content="3; url='/analyse_result'" >
+    {% endif %}
+
+    <!-- Message donnant l'image analysée avec les bonding boxes et demande si désire répéter ou recommencer -->
+    {% if step == 'analyse_result' %}
+        <div class="box2">
+            <form action="/replay_analyse_result" method="POST">
+                <input type="submit" class="boutons" name="button1" value="Répéter les résultats">
+            </form>
+            <form action="/recommencer" method="POST">
+                <input type="submit" class="boutons" name="button2" value="Retour au début">
+            </form>
+        </div>
+        <div class="box3">
+            <p> <img src={{url_for('static', filename=image_file)}} alt="Image que vient de prendre Vector"
+            class="image"></p>
+        </div>
+    {% endif %}
+
+</div>
+</body>
+</html>

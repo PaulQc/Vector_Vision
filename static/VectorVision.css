@@ -1,0 +1,107 @@
+@charset "UTF-8";
+html {
+    box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
+}
+body {
+    text-align: center;
+    background-color: #faf2e4;
+    margin: 0 10%;
+    font-family: sans-serif;
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box1{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+    border-bottom: 1px solid #57b1dc;
+    margin-top: 30px;
+}
+.box2{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.boutons{
+    align-items: center;
+    margin-bottom: 5px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#57b1dc);
+    border: 0;
+    border-radius: 15px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.bouton_demarrer:active,
+.bouton_demarrer:hover {
+  outline: 0 ;
+}
+.image{
+    border-radius: 5%;
+}
+#message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-top: 30px;
+}
+
+
+
+
+/* voir si ce qui suit est encore utile */
+#action_instruction {
+    background-color: lightskyblue;
+    width: 640px;
+    border-radius: 1em;
+}
+#group_vector_view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#title_vector_view {
+    font-style: oblique;
+    line-height: 150%;
+    background-color: lightskyblue;
+    width: 600px;
+    border-radius: 1em;
+}
+span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#espace {
+    height: 150px ;
+    width: 20px;
+}
+footer {
+    border-bottom: 1px solid #57b1dc;
+}

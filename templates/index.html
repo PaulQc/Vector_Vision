@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vector Vision</title>
+    <style>
+    @import "../static/VectorVision.css";
+    </style>
+</head>
+<body>
+<div class="page" id="acceuil_utilisateur">
+    <div class="box1">
+        <p>Essayons de demander à Vector d'interpréter une image <br>
+          et d'y lire le texte qui s'y trouve !</p>
+    </div>
+    <div class="box2">
+        <form action="/try_to_connect" method="POST">
+            <input type="submit" class="boutons" name="bouton1" value="Démarrer l'essai" >
+        </form>
+    </div>
+    <div class="box3">
+        <p> <img src="/static/sample1.jpg" alt="Exemple d'image que Vector peux prendre"
+        class="image"></p>
+    </div>
+</div>
+</body>
+</html>
