@@ -16,8 +16,10 @@ Here is a demonstration video: <br>
 
 
 ## Helpful methods/code
-Azure Vision SDK and exemples :<br> 
+Azure Vision SDK and examples :<br> 
 https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples/python/image-analysis
+
+Connection information need to be set in your *.env* (Robot sn, Azure endpoint and key) 
 
 ## Current limitation / bug
 Tests have been conducted only with Flask's development server <br>
