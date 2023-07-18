@@ -17,6 +17,7 @@ app.vector_text = VectorText()
 app.messages = Messages()
 app.key = os.getenv("key")
 app.endpoint = os.getenv("endpoint")
+app.robot_sn = os.getenv("robot_sn")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -46,7 +47,7 @@ def trying_to_connect():
     Méthode pour essayer de se connecter à Vecteur
     Renvoi un message dépendamment si la connexion a pu être établie ou pas
     """
-    app.robot = anki_vector.Robot(serial='00508611')
+    app.robot = anki_vector.Robot(serial=app.robot_sn)
     try:
         app.robot.connect()
         current_step = 'connected'  # i.e. la connection a été établie
